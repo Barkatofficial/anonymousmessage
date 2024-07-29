@@ -13,7 +13,10 @@ export async function dbConnect(): Promise<void>{
     }
 
     try{
-        const db = await mongoose.connect(process.env.MONGODB_URI || '',{})
+        // console.log(process.env.MONGODB_URI)
+        // const db = await mongoose.connect(process.env.MONGODB_URI || '',{})
+        const db = await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://barkatOrg:barkatOrg123@cluster0.kmb94b2.mongodb.net/',{})
+
         connection.isConnected = db.connections[0].readyState
         console.log("Db Connected Successfully");
         
